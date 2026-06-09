@@ -22,15 +22,21 @@ The installer automatically detects:
 - **Claude Code** — installs to `~/.claude/skills/`
 - **Hermes Agent** — installs to all profiles:
   - Default profile: `~/.hermes/skills/`
-  - Named profiles: `~/.hermes-<name>/skills/` (via `hermes profile list`)
-  - External dirs from `config.yaml`
+  - Named profiles: `~/.hermes/profiles/<name>/skills/`
 
 ### Manual Install
 
 ```bash
 git clone https://github.com/alkindivv/SKILLS.git /tmp/skills
-cp -r /tmp/skills/{debug,deep-research,implementing} ~/.claude/skills/   # Claude Code
-cp -r /tmp/skills/{debug,deep-research,implementing} ~/.hermes/skills/   # Hermes
+
+# Claude Code
+cp -r /tmp/skills/{debug,deep-research,implementing} ~/.claude/skills/
+
+# Hermes default profile
+cp -r /tmp/skills/{debug,deep-research,implementing} ~/.hermes/skills/
+
+# Hermes named profile
+cp -r /tmp/skills/{debug,deep-research,implementing} ~/.hermes/profiles/<name>/skills/
 ```
 
 ### Update

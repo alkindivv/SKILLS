@@ -27,83 +27,44 @@ INSTALLED=0
 # ──────────────────────────────────────────────
 # 1. Claude Code Detection
 # ──────────────────────────────────────────────
-install_claude_code() {
-    local target="$HOME/.claude/skills"
-    mkdir -p "$target"
-    for skill in "${SKILLS[@]}"; do
-        cp -r "$TEMP_DIR/skills/$skill" "$target/"
-    done
-    echo "  ✓ Claude Code → $target"
-    ((INSTALLED++))
-}
-
 if [ -d "$HOME/.claude" ]; then
-    install_claude_code
+    mkdir -p "$HOME/.claude/skills"
+    for skill in "${SKILLS[@]}"; do
+        cp -r "$TEMP_DIR/skills/$skill" "$HOME/.claude/skills/"
+    done
+    echo "  ✓ Claude Code → $HOME/.claude/skills/"
+    ((INSTALLED++))
 fi
 
 # ──────────────────────────────────────────────
 # 2. Hermes Agent Detection
 # ──────────────────────────────────────────────
-install_hermes_profile() {
-    local profile_name="$1"
-    local profile_dir="$2"
-
-    mkdir -p "$profile_dir/skills"
-    for skill in "${SKILLS[@]}"; do
-        cp -r "$TEMP_DIR/skills/$skill" "$profile_dir/skills/"
-    done
-    echo "  ✓ Hermes [$profile_name] → $profile_dir/skills"
-    ((INSTALLED++))
-}
-
-if command -v hermes &>/dev/null; then
-    echo "Hermes Agent detected. Detecting profiles..."
+if command -v hermes &>/dev/null || [ -d "$HOME/.hermes" ]; then
+    echo "Hermes Agent detected."
 
     # Default profile: ~/.hermes/
     if [ -d "$HOME/.hermes" ]; then
-        install_hermes_profile "default" "$HOME/.hermes"
-    fi
-
-    # Named profiles: ~/.hermes-<name>/
-    # Method 1: hermes profile list (if available)
-    PROFILES=$(hermes profile list 2>/dev/null | grep -oE '^\S+' | tail -n +2 || true)
-
-    if [ -n "$PROFILES" ]; then
-        while IFS= read -r profile; do
-            [ -z "$profile" ] && continue
-            [ "$profile" = "default" ] && continue
-            profile_dir="$HOME/.hermes-$profile"
-            if [ -d "$profile_dir" ]; then
-                install_hermes_profile "$profile" "$profile_dir"
-            fi
-        done <<< "$PROFILES"
-    else
-        # Method 2: Scan ~/.hermes-* directories as fallback
-        for dir in "$HOME"/.hermes-*/; do
-            [ -d "$dir" ] || continue
-            profile_name=$(basename "$dir" | sed 's/^\.hermes-//')
-            [ "$profile_name" = "*" ] && continue
-            install_hermes_profile "$profile_name" "$dir"
+        mkdir -p "$HOME/.hermes/skills"
+        for skill in "${SKILLS[@]}"; do
+            cp -r "$TEMP_DIR/skills/$skill" "$HOME/.hermes/skills/"
         done
+        echo "  ✓ Hermes [default] → $HOME/.hermes/skills/"
+        ((INSTALLED++))
     fi
 
-    # External skill dirs from config.yaml
-    if [ -f "$HOME/.hermes/config.yaml" ]; then
-        EXTERNAL_DIRS=$(grep -A 10 'external_dirs:' "$HOME/.hermes/config.yaml" 2>/dev/null | grep '^\s*-' | sed 's/^\s*-\s*//' | sed "s|~|$HOME|g" || true)
-        if [ -n "$EXTERNAL_DIRS" ]; then
-            while IFS= read -r ext_dir; do
-                [ -z "$ext_dir" ] && continue
-                ext_dir=$(eval echo "$ext_dir")
-                if [ -d "$ext_dir" ]; then
-                    mkdir -p "$ext_dir"
-                    for skill in "${SKILLS[@]}"; do
-                        cp -r "$TEMP_DIR/skills/$skill" "$ext_dir/"
-                    done
-                    echo "  ✓ Hermes [external] → $ext_dir"
-                    ((INSTALLED++))
-                fi
-            done <<< "$EXTERNAL_DIRS"
-        fi
+    # Named profiles: ~/.hermes/profiles/<name>/
+    if [ -d "$HOME/.hermes/profiles" ]; then
+        for profile_dir in "$HOME/.hermes/profiles"/*/; do
+            [ -d "$profile_dir" ] || continue
+            profile_name=$(basename "$profile_dir")
+            [ "$profile_name" = "*" ] && continue
+            mkdir -p "$profile_dir/skills"
+            for skill in "${SKILLS[@]}"; do
+                cp -r "$TEMP_DIR/skills/$skill" "$profile_dir/skills/"
+            done
+            echo "  ✓ Hermes [$profile_name] → ${profile_dir}skills/"
+            ((INSTALLED++))
+        done
     fi
 else
     echo "Hermes Agent not found (skipped)."
@@ -120,6 +81,7 @@ if [ "$INSTALLED" -eq 0 ]; then
     echo "Supported agents:"
     echo "  - Claude Code:  ~/.claude/skills/"
     echo "  - Hermes Agent: ~/.hermes/skills/"
+    echo "                 ~/.hermes/profiles/<name>/skills/"
     echo ""
     echo "Manual install:"
     echo "  git clone $REPO /tmp/skills"
