@@ -12,64 +12,31 @@ A collection of reusable AI agent skills for debugging, deep research, and imple
 
 ## Installation
 
-### Claude Code
+### One-liner (Auto-detect)
 
 ```bash
-# One-liner install
-git clone https://github.com/alkindivv/SKILLS.git /tmp/skills && mkdir -p ~/.claude/skills && cp -r /tmp/skills/debug /tmp/skills/deep-research /tmp/skills/implementing ~/.claude/skills/
+curl -sSL https://raw.githubusercontent.com/alkindivv/SKILLS/main/install.sh | bash
 ```
 
-### Hermes AI Agent
+The installer automatically detects:
+- **Claude Code** — installs to `~/.claude/skills/`
+- **Hermes Agent** — installs to all profiles:
+  - Default profile: `~/.hermes/skills/`
+  - Named profiles: `~/.hermes-<name>/skills/` (via `hermes profile list`)
+  - External dirs from `config.yaml`
 
-#### Default Profile (`~/.hermes/skills/`)
+### Manual Install
 
 ```bash
-# Clone and copy to default skills directory
 git clone https://github.com/alkindivv/SKILLS.git /tmp/skills
-mkdir -p ~/.hermes/skills
-cp -r /tmp/skills/debug /tmp/skills/deep-research /tmp/skills/implementing ~/.hermes/skills/
+cp -r /tmp/skills/{debug,deep-research,implementing} ~/.claude/skills/   # Claude Code
+cp -r /tmp/skills/{debug,deep-research,implementing} ~/.hermes/skills/   # Hermes
 ```
-
-#### Named Profile (`hermes -p <profile>`)
-
-```bash
-# Install to a specific profile
-hermes -p research shell -c "
-  git clone https://github.com/alkindivv/SKILLS.git /tmp/skills
-  mkdir -p ~/.hermes-research/skills
-  cp -r /tmp/skills/debug /tmp/skills/deep-research /tmp/skills/implementing ~/.hermes-research/skills/
-"
-```
-
-#### External Skill Directory (Shared across profiles)
-
-Add to `~/.hermes/config.yaml`:
-
-```yaml
-skills:
-  external_dirs:
-    - ~/path/to/SKILLS
-```
-
-Then clone the repo to that path:
-
-```bash
-git clone https://github.com/alkindivv/SKILLS.git ~/path/to/SKILLS
-```
-
-All profiles will automatically discover skills from this directory.
 
 ### Update
 
 ```bash
-# Claude Code
-cd ~/.claude/skills && git clone https://github.com/alkindivv/SKILLS.git /tmp/skills && cp -r /tmp/skills/debug /tmp/skills/deep-research /tmp/skills/implementing ~/.claude/skills/
-
-# Hermes (default profile)
-cd ~/.hermes/skills && git clone https://github.com/alkindivv/SKILLS.git /tmp/skills && cp -r /tmp/skills/debug /tmp/skills/deep-research /tmp/skills/implementing ~/.hermes/skills/
-
-# Hermes (external dir)
-cd ~/path/to/SKILLS && git pull
+curl -sSL https://raw.githubusercontent.com/alkindivv/SKILLS/main/install.sh | bash
 ```
 
 ## Usage
