@@ -15,40 +15,61 @@ A collection of reusable AI agent skills for debugging, deep research, and imple
 ### Claude Code
 
 ```bash
-# Clone to skills directory
-git clone https://github.com/alkindivv/SKILLS.git ~/.claude/skills/skills
-
-# Or install individual skills
-git clone https://github.com/alkindivv/SKILLS.git /tmp/skills
-cp -r /tmp/skills/debug ~/.claude/skills/
-cp -r /tmp/skills/deep-research ~/.claude/skills/
-cp -r /tmp/skills/implementing ~/.claude/skills/
-```
-
-### Claude Code (One-liner)
-
-```bash
+# One-liner install
 git clone https://github.com/alkindivv/SKILLS.git /tmp/skills && mkdir -p ~/.claude/skills && cp -r /tmp/skills/debug /tmp/skills/deep-research /tmp/skills/implementing ~/.claude/skills/
 ```
 
-### Hermes AI Agent / Other Agents
+### Hermes AI Agent
+
+#### Default Profile (`~/.hermes/skills/`)
 
 ```bash
-# Generic installation - copy to your agent's skills/plugins directory
+# Clone and copy to default skills directory
 git clone https://github.com/alkindivv/SKILLS.git /tmp/skills
-
-# Adjust path to your agent's configuration
-cp -r /tmp/skills/debug /path/to/your/agent/skills/
-cp -r /tmp/skills/deep-research /path/to/your/agent/skills/
-cp -r /tmp/skills/implementing /path/to/your/agent/skills/
+mkdir -p ~/.hermes/skills
+cp -r /tmp/skills/debug /tmp/skills/deep-research /tmp/skills/implementing ~/.hermes/skills/
 ```
+
+#### Named Profile (`hermes -p <profile>`)
+
+```bash
+# Install to a specific profile
+hermes -p research shell -c "
+  git clone https://github.com/alkindivv/SKILLS.git /tmp/skills
+  mkdir -p ~/.hermes-research/skills
+  cp -r /tmp/skills/debug /tmp/skills/deep-research /tmp/skills/implementing ~/.hermes-research/skills/
+"
+```
+
+#### External Skill Directory (Shared across profiles)
+
+Add to `~/.hermes/config.yaml`:
+
+```yaml
+skills:
+  external_dirs:
+    - ~/path/to/SKILLS
+```
+
+Then clone the repo to that path:
+
+```bash
+git clone https://github.com/alkindivv/SKILLS.git ~/path/to/SKILLS
+```
+
+All profiles will automatically discover skills from this directory.
 
 ### Update
 
 ```bash
-cd ~/.claude/skills/skills && git pull
-# Or for individual installs
-cd /tmp/skills && git pull && cp -r debug deep-research implementing ~/.claude/skills/
+# Claude Code
+cd ~/.claude/skills && git clone https://github.com/alkindivv/SKILLS.git /tmp/skills && cp -r /tmp/skills/debug /tmp/skills/deep-research /tmp/skills/implementing ~/.claude/skills/
+
+# Hermes (default profile)
+cd ~/.hermes/skills && git clone https://github.com/alkindivv/SKILLS.git /tmp/skills && cp -r /tmp/skills/debug /tmp/skills/deep-research /tmp/skills/implementing ~/.hermes/skills/
+
+# Hermes (external dir)
+cd ~/path/to/SKILLS && git pull
 ```
 
 ## Usage
