@@ -24,33 +24,32 @@ echo ""
 
 INSTALLED=0
 
+install_skills() {
+    local target="$1"
+    local label="$2"
+    mkdir -p "$target"
+    for skill in "${SKILLS[@]}"; do
+        cp -r "$TEMP_DIR/skills/$skill" "$target/"
+    done
+    echo "  ✓ $label → $target"
+    INSTALLED=$((INSTALLED + 1))
+}
+
 # ──────────────────────────────────────────────
-# 1. Claude Code Detection
+# 1. Claude Code
 # ──────────────────────────────────────────────
 if [ -d "$HOME/.claude" ]; then
-    mkdir -p "$HOME/.claude/skills"
-    for skill in "${SKILLS[@]}"; do
-        cp -r "$TEMP_DIR/skills/$skill" "$HOME/.claude/skills/"
-    done
-    echo "  ✓ Claude Code → $HOME/.claude/skills/"
-    ((INSTALLED++))
+    install_skills "$HOME/.claude/skills" "Claude Code"
 fi
 
 # ──────────────────────────────────────────────
-# 2. Hermes Agent Detection
+# 2. Hermes Agent
 # ──────────────────────────────────────────────
-if command -v hermes &>/dev/null || [ -d "$HOME/.hermes" ]; then
+if [ -d "$HOME/.hermes" ]; then
     echo "Hermes Agent detected."
 
-    # Default profile: ~/.hermes/
-    if [ -d "$HOME/.hermes" ]; then
-        mkdir -p "$HOME/.hermes/skills"
-        for skill in "${SKILLS[@]}"; do
-            cp -r "$TEMP_DIR/skills/$skill" "$HOME/.hermes/skills/"
-        done
-        echo "  ✓ Hermes [default] → $HOME/.hermes/skills/"
-        ((INSTALLED++))
-    fi
+    # Default profile
+    install_skills "$HOME/.hermes/skills" "Hermes [default]"
 
     # Named profiles: ~/.hermes/profiles/<name>/
     if [ -d "$HOME/.hermes/profiles" ]; then
@@ -58,23 +57,16 @@ if command -v hermes &>/dev/null || [ -d "$HOME/.hermes" ]; then
             [ -d "$profile_dir" ] || continue
             profile_name=$(basename "$profile_dir")
             [ "$profile_name" = "*" ] && continue
-            mkdir -p "$profile_dir/skills"
-            for skill in "${SKILLS[@]}"; do
-                cp -r "$TEMP_DIR/skills/$skill" "$profile_dir/skills/"
-            done
-            echo "  ✓ Hermes [$profile_name] → ${profile_dir}skills/"
-            ((INSTALLED++))
+            install_skills "${profile_dir}skills" "Hermes [$profile_name]"
         done
     fi
-else
-    echo "Hermes Agent not found (skipped)."
 fi
-
-echo ""
 
 # ──────────────────────────────────────────────
 # Summary
 # ──────────────────────────────────────────────
+echo ""
+
 if [ "$INSTALLED" -eq 0 ]; then
     echo "No supported agents found."
     echo ""
