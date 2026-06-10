@@ -2,8 +2,6 @@
 # SKILLS Installer — Auto-detect Claude Code & Hermes Agent profiles
 # Usage: curl -sSL https://raw.githubusercontent.com/alkindivv/SKILLS/main/install.sh | bash
 
-set -e
-
 REPO="https://github.com/alkindivv/SKILLS.git"
 SKILLS=("debug" "deep-research" "implementing")
 TEMP_DIR=$(mktemp -d)
@@ -16,10 +14,10 @@ echo ""
 
 # Clone repo
 echo "Cloning $REPO..."
-git clone --depth 1 "$REPO" "$TEMP_DIR/skills" 2>/dev/null || {
+if ! git clone --depth 1 "$REPO" "$TEMP_DIR/skills" 2>/dev/null; then
     echo "Error: Failed to clone repository"
     exit 1
-}
+fi
 echo ""
 
 INSTALLED=0
@@ -27,9 +25,9 @@ INSTALLED=0
 install_skills() {
     local target="$1"
     local label="$2"
-    mkdir -p "$target"
+    mkdir -p "$target" || return 0
     for skill in "${SKILLS[@]}"; do
-        cp -r "$TEMP_DIR/skills/$skill" "$target/"
+        [ -d "$TEMP_DIR/skills/$skill" ] && cp -r "$TEMP_DIR/skills/$skill" "$target/"
     done
     echo "  ✓ $label → $target"
     INSTALLED=$((INSTALLED + 1))
@@ -46,20 +44,25 @@ fi
 # 2. Hermes Agent
 # ──────────────────────────────────────────────
 if [ -d "$HOME/.hermes" ]; then
-    echo "Hermes Agent detected."
+    echo "Hermes Agent detected at $HOME/.hermes"
 
     # Default profile
     install_skills "$HOME/.hermes/skills" "Hermes [default]"
 
     # Named profiles: ~/.hermes/profiles/<name>/
-    if [ -d "$HOME/.hermes/profiles" ]; then
-        for profile_dir in "$HOME/.hermes/profiles"/*/; do
+    PROFILES_DIR="$HOME/.hermes/profiles"
+    if [ -d "$PROFILES_DIR" ]; then
+        for profile_dir in "$PROFILES_DIR"/*/; do
+            # Skip if glob didn't match (no directories)
             [ -d "$profile_dir" ] || continue
             profile_name=$(basename "$profile_dir")
-            [ "$profile_name" = "*" ] && continue
             install_skills "${profile_dir}skills" "Hermes [$profile_name]"
         done
+    else
+        echo "  (no profiles directory at $PROFILES_DIR)"
     fi
+else
+    echo "Hermes Agent not found at $HOME/.hermes (skipped)"
 fi
 
 # ──────────────────────────────────────────────
