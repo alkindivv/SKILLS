@@ -9,6 +9,7 @@ A collection of reusable AI agent skills for debugging, deep research, and imple
 | [debug](debug/) | Systematic debugging with root cause analysis, failure chain reconstruction, and hypothesis falsification |
 | [deep-research](deep-research/) | Comprehensive research with primary sources, uncertainty mapping, and synthesis (Indonesian) |
 | [implementing](implementing/) | Code implementation with KISS, YAGNI, TDD principles |
+| [forcing-questions](forcing-questions/) | Push back on hidden assumptions, scope creep, and overengineering before decomposing tasks |
 
 ## Installation
 
@@ -30,13 +31,13 @@ The installer automatically detects:
 git clone https://github.com/alkindivv/SKILLS.git /tmp/skills
 
 # Claude Code
-cp -r /tmp/skills/{debug,deep-research,implementing} ~/.claude/skills/
+cp -r /tmp/skills/{debug,deep-research,implementing,forcing-questions} ~/.claude/skills/
 
 # Hermes default profile
-cp -r /tmp/skills/{debug,deep-research,implementing} ~/.hermes/skills/
+cp -r /tmp/skills/{debug,deep-research,implementing,forcing-questions} ~/.hermes/skills/
 
 # Hermes named profile
-cp -r /tmp/skills/{debug,deep-research,implementing} ~/.hermes/profiles/<name>/skills/
+cp -r /tmp/skills/{debug,deep-research,implementing,forcing-questions} ~/.hermes/profiles/<name>/skills/
 ```
 
 ### Update
@@ -83,6 +84,8 @@ skills/
 │   └── SKILL.md          # Research workflow in Indonesian
 ├── implementing/
 │   └── SKILL.md          # Implementation with KISS/YAGNI/TDD
+├── forcing-questions/
+│   └── SKILL.md          # Pre-task pushback on framing, scope, and reversibility
 ├── AGENTS.md             # Agent configuration
 └── README.md             # This file
 ```

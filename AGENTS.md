@@ -18,6 +18,11 @@
 - **Purpose**: Code implementation with KISS, YAGNI, TDD
 - **File**: `implementing/SKILL.md`
 
+### forcing-questions
+- **Trigger**: "should we", "build me", "let's add", "what if we", "I want to", "I'm thinking about", or any high-stakes/ambiguous request
+- **Purpose**: Pre-task pushback — surface hidden assumptions, scope creep, overengineering, and reversibility costs before decomposing
+- **File**: `forcing-questions/SKILL.md`
+
 ## Integration Guide
 
 ### Claude Code
