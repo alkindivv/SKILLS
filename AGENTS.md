@@ -23,6 +23,11 @@
 - **Purpose**: Pre-task pushback — surface hidden assumptions, scope creep, overengineering, and reversibility costs before decomposing
 - **File**: `forcing-questions/SKILL.md`
 
+### legal-crawler
+- **Trigger**: "crawl", "peraturan", "regulation", "BPK", "JDIH", "legal knowledge base", "Indonesian law", "undang-undang", "peraturan daerah", "SOCKS5 tunnel", "geo-blocked"
+- **Purpose**: Indonesian legal regulation crawler — dual-source (peraturan.go.id + peraturan.bpk.go.id) with stealth VPS tunnel
+- **File**: `legal-crawler/SKILL.md`
+
 ## Integration Guide
 
 ### Claude Code
