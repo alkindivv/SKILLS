@@ -30,6 +30,30 @@ JobStreet uses cryptic option IDs for questionnaire selects. Here are the mapped
 | ID_Q_2588_V_2_A_2610 | Rp 80 million |
 | ID_Q_2588_V_2_A_2611 | Rp 100 million or more |
 
+## Qualifications (select[name*="2630"]) — NEW
+
+| Option ID | Text |
+|-----------|------|
+| ID_Q_2630_V_1_A_2631 | Elementary school (SD) or equivalent |
+| ID_Q_2630_V_1_A_2632 | SMP or equivalent |
+| ID_Q_2630_V_1_A_2633 | SMA/SMK or equivalent |
+| ID_Q_2630_V_1_A_2634 | Diploma 1 |
+| ID_Q_2630_V_1_A_2635 | Diploma 2 |
+| ID_Q_2630_V_1_A_2636 | Diploma 3 |
+| ID_Q_2630_V_1_A_2637 | Diploma 4 |
+| ID_Q_2630_V_1_A_2638 | Bachelor Degree (S1) |
+| ID_Q_2630_V_1_A_2639 | Professional Education Program |
+| ID_Q_2630_V_1_A_2640 | Masters Degree (S2) |
+| ID_Q_2630_V_1_A_2641 | Doctoral Degree (S3) |
+| ID_Q_2630_V_1_A_2642 | I have a qualification that is not listed here |
+
+## Outside Hours (input[name*="104"]) — NEW
+
+| Option ID | Text |
+|-----------|------|
+| ID_Q_104_V_1_A_554 | Yes |
+| ID_Q_104_V_1_A_555 | No |
+
 ## Legal Counsel Experience (select[name*="9ABA"])
 
 | Option ID | Text |
