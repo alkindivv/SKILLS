@@ -1,0 +1,6 @@
+interface:
+  display_name: "Anti-Slop Editor"
+  short_description: "Natural, specific writing without losing facts or voice"
+  default_prompt: "Use $anti-slop-editor to write or revise this text. Preserve meaning, evidence, uncertainty, voice, and the requested format."
+policy:
+  allow_implicit_invocation: true

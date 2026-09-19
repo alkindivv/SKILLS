@@ -1,0 +1,14 @@
+# Optional. Fill only with user-authorized preferences or samples.
+profile_name: null
+scope: null
+language_locale: null
+audience: null
+register: null
+pronouns: null
+preferred_terms: []
+terms_to_preserve: []
+house_style_constraints: []
+voice_samples: []
+avoid_by_user_preference: []
+# Do not infer personal history, opinions, or sensitive attributes from style.
+# Do not save a profile automatically or replace another profile without consent.

@@ -1,0 +1,198 @@
+[
+  {
+    "id": "W01",
+    "title": "Homepage: fakta lebih dahulu",
+    "task": "Tulis headline dan satu kalimat pendukung. Fakta tersedia: Draftroom menyimpan draf, menyediakan komentar, dan menjadwalkan publikasi.",
+    "before": "Buka potensi tanpa batas dengan solusi revolusioner untuk mentransformasi perjalanan konten Anda.",
+    "after": "Atur draf dan jadwal publikasi di Draftroom.\nSimpan draf, beri komentar, dan tentukan kapan artikel diterbitkan.",
+    "review": "Copy menyebut fitur yang diberikan. Tidak menambah jumlah pengguna, integrasi, penghematan waktu, atau jaminan.",
+    "checks": {
+      "required": [
+        "Draftroom",
+        "draf",
+        "komentar"
+      ],
+      "forbidden": [
+        "terbaik",
+        "5.000",
+        "jaminan"
+      ]
+    }
+  },
+  {
+    "id": "W02",
+    "title": "Laporan: penjualan bukan laba",
+    "task": "Perbaiki interpretasi berdasarkan data: penjualan Juli Rp120 juta, Agustus Rp126 juta, biaya tidak tersedia.",
+    "before": "Penjualan meningkat dan membuktikan bahwa laba perusahaan melonjak.",
+    "after": "Penjualan naik dari Rp120 juta pada Juli menjadi Rp126 juta pada Agustus, atau 5%. Perubahan laba belum dapat ditentukan karena data biaya tidak tersedia.",
+    "review": "5% dihitung sebagai (126 - 120) / 120. Penjualan dan laba dibedakan; tidak ada penyebab kenaikan yang direka.",
+    "checks": {
+      "required": [
+        "Rp120 juta",
+        "Rp126 juta",
+        "5%",
+        "biaya tidak tersedia"
+      ],
+      "forbidden": [
+        "laba meningkat",
+        "membuktikan"
+      ]
+    }
+  },
+  {
+    "id": "W03",
+    "title": "Terjemahan: modalitas dan cakupan",
+    "task": "Terjemahkan ke bahasa Indonesia, hanya hasilnya.",
+    "before": "The update may reduce processing time by up to 18% in internal tests.",
+    "after": "Dalam pengujian internal, pembaruan ini mungkin mengurangi waktu pemrosesan hingga 18%.",
+    "review": "Mungkin = ketidakpastian; hingga = batas atas; pengujian internal = konteks. Tidak diubah menjadi hasil yang pasti.",
+    "checks": {
+      "required": [
+        "mungkin",
+        "hingga 18%",
+        "pengujian internal"
+      ],
+      "literal_check": true
+    }
+  },
+  {
+    "id": "W04",
+    "title": "Terjemahan: izin bukan kewajiban",
+    "task": "Terjemahkan ke bahasa Indonesia.",
+    "before": "You may cancel unless the invoice has already been paid.",
+    "after": "Anda boleh membatalkan, kecuali jika tagihan sudah dibayar.",
+    "review": "Boleh mempertahankan izin. Kecuali mempertahankan pengecualian.",
+    "checks": {
+      "required": [
+        "boleh",
+        "kecuali",
+        "sudah dibayar"
+      ],
+      "forbidden": [
+        "harus"
+      ],
+      "literal_check": true
+    }
+  },
+  {
+    "id": "W05",
+    "title": "Tidak perlu memaksa kalimat aktif",
+    "task": "Copyedit only if needed. Keep the sample-focused scientific register.",
+    "before": "Samples were stored at 4 degrees Celsius until analysis.",
+    "after": "Samples were stored at 4 degrees Celsius until analysis.",
+    "review": "Tidak ada perbaikan yang diperlukan. Menambah peneliti sebagai subjek akan menciptakan detail yang tidak diberikan.",
+    "checks": {
+      "unchanged": true,
+      "literal_check": true
+    }
+  },
+  {
+    "id": "W06",
+    "title": "Kontras yang memang menjelaskan hak akses",
+    "task": "Rapikan bila perlu.",
+    "before": "Akun tamu dapat membaca laporan, tetapi tidak dapat mengeditnya.",
+    "after": "Akun tamu dapat membaca laporan, tetapi tidak dapat mengeditnya.",
+    "review": "Kontras menjelaskan batas akses. Ini bukan pola kosong yang perlu dihapus.",
+    "checks": {
+      "unchanged": true,
+      "literal_check": true
+    }
+  },
+  {
+    "id": "W07",
+    "title": "Email: usulan tidak menjadi keputusan",
+    "task": "Padatkan tanpa mengubah status tenggat yang masih berupa usulan.",
+    "before": "Saya ingin menyampaikan bahwa kami mengusulkan agar ulasan diberikan paling lambat Jumat, apabila jadwal tersebut memungkinkan bagi Anda.",
+    "after": "Kami mengusulkan tenggat ulasan pada Jumat. Apakah jadwal ini memungkinkan bagi Anda?",
+    "review": "Tenggat tetap merupakan usulan, bukan tenggat yang telah disetujui atau dijamin.",
+    "checks": {
+      "required": [
+        "mengusulkan",
+        "Jumat",
+        "?"
+      ],
+      "forbidden": [
+        "telah disepakati",
+        "pasti"
+      ]
+    }
+  },
+  {
+    "id": "W08",
+    "title": "String UI: token tetap utuh",
+    "task": "Terjemahkan label tanpa mengubah placeholder.",
+    "before": "Save changes to {project_name}?",
+    "after": "Simpan perubahan pada {project_name}?",
+    "review": "Hanya prosa diterjemahkan. Token dan tanda tanya tetap dipertahankan.",
+    "checks": {
+      "literal_check": true,
+      "manifest": {
+        "exact": [
+          "{project_name}"
+        ],
+        "counts": {
+          "{project_name}": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "W09",
+    "title": "Ringkasan: dukungan tidak bulat",
+    "task": "Ringkas menjadi satu kalimat tanpa menghilangkan keberatan utama.",
+    "before": "Komite terdiri atas tujuh anggota. Lima mendukung uji coba. Dua menolak karena biaya belum dihitung. Keputusan peluncuran penuh ditunda.",
+    "after": "Lima dari tujuh anggota komite mendukung uji coba, tetapi dua menolak karena biaya belum dihitung; keputusan peluncuran penuh ditunda.",
+    "review": "Ruang lingkup dukungan, jumlah anggota, keberatan biaya, dan penundaan peluncuran tetap ada.",
+    "checks": {
+      "required": [
+        "Lima dari tujuh",
+        "dua menolak",
+        "biaya belum dihitung",
+        "peluncuran penuh ditunda"
+      ]
+    }
+  },
+  {
+    "id": "W10",
+    "title": "Puisi: pertahankan pengulangan",
+    "task": "Periksa tanpa merusak anafora yang disengaja; boleh tidak diubah.",
+    "before": "Aku menunggu hujan. Aku menunggu kabar. Aku menunggu namamu berhenti menjadi pintu.",
+    "after": "Aku menunggu hujan. Aku menunggu kabar. Aku menunggu namamu berhenti menjadi pintu.",
+    "review": "Pengulangan merupakan pilihan bentuk dan makna, bukan bukti slop. Tidak ditambahkan disclosure atau ringkasan.",
+    "checks": {
+      "unchanged": true,
+      "literal_check": true
+    }
+  },
+  {
+    "id": "W11",
+    "title": "JSON: terjemahkan nilai saja",
+    "task": "Kembalikan JSON valid, terjemahkan nilainya, jangan ubah kunci.",
+    "before": "{\"save\":\"Save changes\",\"project\":\"Open {project_name}\"}",
+    "after": "{\"save\":\"Simpan perubahan\",\"project\":\"Buka {project_name}\"}",
+    "review": "Kunci dan placeholder tetap; hasil dapat diparse sebagai JSON. Pemeriksa literal sendiri tidak memvalidasi sintaks JSON.",
+    "checks": {
+      "literal_check": true,
+      "json_keys": [
+        "save",
+        "project"
+      ]
+    }
+  },
+  {
+    "id": "W12",
+    "title": "Headline dengan batas kata",
+    "task": "Tulis headline tepat tujuh kata tentang mengatur draf dan jadwal publikasi.",
+    "before": "Sebuah solusi terbaik untuk segala kebutuhan konten.",
+    "after": "Atur draf dan jadwal publikasi artikel Anda.",
+    "review": "Tujuh kata menurut pemisahan spasi; fungsinya jelas tanpa klaim superioritas.",
+    "checks": {
+      "word_count": 7,
+      "forbidden": [
+        "terbaik",
+        "terdepan",
+        "revolusioner"
+      ]
+    }
+  }
+]

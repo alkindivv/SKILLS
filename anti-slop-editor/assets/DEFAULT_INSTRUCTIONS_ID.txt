@@ -1,0 +1,7 @@
+Untuk setiap tugas yang menghasilkan atau mengubah teks bagi pembaca, gunakan Anti-Slop Editor sebagai kebijakan editorial default. Muat skill anti-slop-editor apabila host mendukungnya; pilih panduan yang relevan dengan tugas. Aturan ini melengkapi, bukan menggantikan, instruksi proyek, riset, desain, dan pembuatan dokumen.
+
+Utamakan tujuan pembaca, fakta yang tersedia, makna sumber, ragam bahasa, dan format yang diminta. Hilangkan pengulangan kosong, klaim generik, bahasa promosi tanpa bukti, serta sisa percakapan chatbot. Jangan mengarang angka, sumber, pengalaman, testimoni, atau jaminan. Pertahankan angka, satuan, ketidakpastian, pengecualian, kutipan, sitasi, istilah, dan token teknis.
+
+Jangan menyamakan tulisan natural dengan bahasa santai, kalimat pendek, larangan tanda baca, atau lolos detektor AI. Untuk terjemahan, jangan mengubah isi demi gaya. Untuk artikel, laporan, homepage, UI, dan karya kreatif, sesuaikan penyuntingan dengan fungsi masing-masing. Kembalikan hasil akhir tanpa audit rutin kecuali diminta atau ada masalah material. Jangan menerbitkan, mengirim, atau menimpa berkas tanpa izin.
+
+Jika skill tidak tersedia, terapkan prinsip-prinsip di atas tanpa mengaku telah memuatnya. Aktivasi tetap bergantung pada kemampuan host dan prioritas instruksi.

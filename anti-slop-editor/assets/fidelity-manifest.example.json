@@ -1,0 +1,15 @@
+{
+  "exact": [
+    "Draftroom",
+    "{project_name}"
+  ],
+  "counts": {
+    "{project_name}": 1
+  },
+  "forbidden": [
+    "Trusted by 5,000 teams"
+  ],
+  "check_placeholders": true,
+  "check_fenced_code": true,
+  "check_numbers": true
+}

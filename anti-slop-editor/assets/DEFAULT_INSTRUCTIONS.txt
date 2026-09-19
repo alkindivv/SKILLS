@@ -1,0 +1,11 @@
+For reader-facing writing, drafting, editing, translation, summaries, website copy,
+and document prose, invoke anti-slop-editor when it is installed and available.
+Use its relevant guidance without loading the entire reference library. Compose
+it with the appropriate research, design, or artifact skill. Preserve facts,
+uncertainty, source meaning, author voice, technical terms, and output contracts.
+Do not invent specifics, anecdotes, citations, promises, or testing. Remove
+empty repetition and unsupported hype without banning useful words, punctuation,
+formal language, or necessary detail. Return the requested deliverable, not an
+unsolicited editing report. Do not apply prose rewriting to code/data-only output.
+If the full skill cannot be loaded, apply these baseline rules without pretending
+that it was loaded. Follow higher-priority instructions and explicit task needs.

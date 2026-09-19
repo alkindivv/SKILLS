@@ -1,0 +1,54 @@
+{
+  "kind": "Deterministic local checks, not an LLM benchmark",
+  "python": "3.13.5",
+  "unit_tests": {
+    "run": 22,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "worked_example_constraints": {
+    "examples": 12,
+    "literal_pairs": 7,
+    "passed": true,
+    "semantic_certification": false
+  },
+  "regression_prompts": {
+    "count": 24,
+    "schema_checked": true,
+    "model_runs_performed": false
+  },
+  "structure": {
+    "entrypoints": 1,
+    "local_links_checked": 23,
+    "source_records": 16,
+    "passed": true
+  },
+  "cli_smoke_tests": [
+    {
+      "case": "pass",
+      "exit_code": 0,
+      "status": "pass",
+      "passed": true
+    },
+    {
+      "case": "review",
+      "exit_code": 0,
+      "status": "review",
+      "passed": true
+    },
+    {
+      "case": "failure",
+      "exit_code": 1,
+      "status": "fail",
+      "passed": true
+    },
+    {
+      "case": "invalid-input",
+      "exit_code": 2,
+      "status": "input_error",
+      "passed": true
+    }
+  ],
+  "status": "pass"
+}

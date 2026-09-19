@@ -1,0 +1,170 @@
+{
+  "review_date": "2026-09-20",
+  "scope": "Curated public-source review, not an exhaustive registry or a full implementation/security audit.",
+  "commit_pinning": "No upstream commit hashes were independently verified. Browser representations may be cached.",
+  "sources": [
+    {
+      "id": "S01",
+      "project": "blader/humanizer",
+      "kind": "Writing humanizer",
+      "access": "Primary SKILL.md inspected; GitHub and raw representations differed in version.",
+      "url": "https://github.com/blader/humanizer/blob/main/SKILL.md",
+      "extra": "https://raw.githubusercontent.com/blader/humanizer/main/SKILL.md",
+      "take": "Pattern diagnosis, meaning preservation, voice-aware editing, and suppression of chatbot residue.",
+      "reject": "Do not inherit blanket punctuation bans, detector claims, default draft/audit/final triplication, or examples that introduce unsupported detail.",
+      "license": "MIT stated in skill frontmatter; full license audit not performed."
+    },
+    {
+      "id": "S02",
+      "project": "adewale/anti-slop-writing",
+      "kind": "Editorial skill",
+      "access": "Primary SKILL.md sections inspected.",
+      "url": "https://raw.githubusercontent.com/adewale/anti-slop-writing/main/skills/anti-slop-writing/SKILL.md",
+      "take": "Relate paragraphs through actual reasoning; inspect whether rhetoric substitutes for a supported point.",
+      "reject": "Do not enforce one syntax or conclusion template across genres.",
+      "license": "MIT stated in skill frontmatter; full license audit not performed."
+    },
+    {
+      "id": "S03",
+      "project": "jalaalrd/anti-ai-slop-writing",
+      "kind": "Universal writing directive",
+      "access": "Primary SKILL.md inspected.",
+      "url": "https://raw.githubusercontent.com/jalaalrd/anti-ai-slop-writing/main/skills/anti-ai-slop-writing/SKILL.md",
+      "take": "Broad coverage and warnings against fake anecdotes and fabricated data.",
+      "reject": "Reject universal word bans, sentence-length recipes, one-sentence counterargument limits, and prohibition of passive voice.",
+      "license": "Repository README states MIT; license file not independently inspected."
+    },
+    {
+      "id": "S04",
+      "project": "adenaufal/anti-slop-writing",
+      "kind": "Indonesian/English writing rules",
+      "access": "Primary Indonesian SKILL.md sections inspected.",
+      "url": "https://github.com/adenaufal/anti-slop-writing/blob/main/indonesian/SKILL.md",
+      "take": "Separate Indonesian registers and inspect locally unnatural phrasing rather than translating an English blacklist.",
+      "reject": "Reject detector optimization, forced register mixing, blanket dash bans, and unsupported statistical claims about authorship.",
+      "license": "A license is listed by the repository; terms not independently audited."
+    },
+    {
+      "id": "S05",
+      "project": "dharmawan-id/anti-ai-slop",
+      "kind": "Bilingual standard with skill/MCP/CLI",
+      "access": "Primary repository description/README material inspected; runtime and full ruleset not audited.",
+      "url": "https://github.com/dharmawan-id/anti-ai-slop",
+      "take": "Check Indonesian-specific bureaucratic wording and source-language calques; distinguish editorial diagnostics from detection.",
+      "reject": "No MCP server, CLI, code, thresholds, or source text is bundled or executed.",
+      "license": "Not independently verified."
+    },
+    {
+      "id": "S06",
+      "project": "hap-team/deslop",
+      "kind": "Skill and Claude plugin",
+      "access": "Primary repository README inspected; skill-file fetch did not succeed.",
+      "url": "https://github.com/hap-team/deslop",
+      "take": "Optional voice profiles and a focused review after rewriting.",
+      "reject": "Reject permanent bans on useful punctuation or legitimate rhetorical forms; no plugin runtime imported.",
+      "license": "MIT stated in repository README; full license audit not performed."
+    },
+    {
+      "id": "S07",
+      "project": "stephenturner/skill-deslop",
+      "kind": "Scientific/professional prose skill",
+      "access": "Primary repository README inspected; related newer collection surfaced separately.",
+      "url": "https://github.com/stephenturner/skill-deslop",
+      "extra": "https://github.com/stephenturner/skills",
+      "take": "Preserve domain terms and appropriate scientific passive constructions.",
+      "reject": "Do not infer scientific accuracy from removal of stylistic patterns. Related copies are one source family, not independent evidence.",
+      "license": "Not independently verified."
+    },
+    {
+      "id": "S08",
+      "project": "sanketagarwal/mega-anti-slop",
+      "kind": "Context-routed editorial skill",
+      "access": "Indexed primary README excerpt only; full-page and SKILL fetches failed.",
+      "url": "https://github.com/sanketagarwal/mega-anti-slop",
+      "take": "Consider explicit fidelity protection, medium-specific routing, and transparent evaluation limits.",
+      "reject": "Treat as a corroborating design reference, not a fully audited implementation or evidence of benchmark superiority.",
+      "license": "License file was listed; terms not independently inspected."
+    },
+    {
+      "id": "S09",
+      "project": "codeSTACKr/anti-slop-slop-canon",
+      "kind": "Voice-oriented writing/spoken-output skill",
+      "access": "Indexed primary README excerpt only; full-page and SKILL fetches failed.",
+      "url": "https://github.com/codeSTACKr/anti-slop-slop-canon",
+      "take": "Separate voice from default cleanup, and distinguish written from spoken output.",
+      "reject": "No automatic onboarding interruption or persistence. Do not claim its profile system was tested.",
+      "license": "Not independently verified."
+    },
+    {
+      "id": "S10",
+      "project": "obra/the-elements-of-style",
+      "kind": "Writing clearly and concisely",
+      "access": "Primary SKILL.md inspected; underlying book was not imported.",
+      "url": "https://github.com/obra/the-elements-of-style/blob/main/skills/writing-clearly-and-concisely/SKILL.md",
+      "take": "Use concrete wording and remove needless words while maintaining useful structure.",
+      "reject": "Do not universalize English grammar rules, mandatory active voice, or brevity across languages and genres.",
+      "license": "Not independently verified; no book or source prose redistributed."
+    },
+    {
+      "id": "S11",
+      "project": "softaworks/agent-toolkit",
+      "kind": "Writing clearly and concisely variant",
+      "access": "Primary SKILL.md available and inspected at the workflow/routing level.",
+      "url": "https://raw.githubusercontent.com/softaworks/agent-toolkit/main/skills/writing-clearly-and-concisely/SKILL.md",
+      "take": "Pair positive writing guidance with pattern diagnosis; load only needed references.",
+      "reject": "Treat overlap with obra as a source family rather than independent validation.",
+      "license": "Not independently verified."
+    },
+    {
+      "id": "S12",
+      "project": "coreyhaines31/marketingskills",
+      "kind": "Copywriting and copy-editing skills",
+      "access": "Primary copy-editing sections inspected; primary copywriting entrypoint retrieved.",
+      "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/copy-editing/SKILL.md",
+      "extra": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/main/skills/copywriting/SKILL.md",
+      "take": "Use page purpose, audience, focused editing passes, and proof checks for product copy.",
+      "reject": "Keep persuasion scoped to marketing. Never invent benefits, figures, risk reversals, testimonials, or guarantees from illustrative examples.",
+      "license": "Not independently verified in this review."
+    },
+    {
+      "id": "S13",
+      "project": "jiji262/humanizer-chinese",
+      "kind": "Chinese-localized humanizer",
+      "access": "Primary SKILL.md sections inspected; not validated by a native-language evaluator.",
+      "url": "https://github.com/jiji262/humanizer-chinese/blob/main/SKILL.md",
+      "take": "Adapt the editorial test to the target language and preserve register and source meaning.",
+      "reject": "No Chinese lexicon, numerical detection claims, forced rhythm, or native-level competence claim imported.",
+      "license": "MIT stated in skill frontmatter; full license audit not performed."
+    },
+    {
+      "id": "S14",
+      "project": "seulkikaang/writing-deslop",
+      "kind": "Korean/English writing patterns",
+      "access": "Indexed primary README excerpt only; full-page fetch failed.",
+      "url": "https://github.com/seulkikaang/writing-deslop",
+      "take": "Use as a multilingual coverage check for formulaic drama, not as validation of Korean output.",
+      "reject": "No Korean rule list or unsupported example claims copied.",
+      "license": "Not independently verified."
+    },
+    {
+      "id": "S15",
+      "project": "ch040602/anti-ai-slop",
+      "kind": "Cross-artifact review skill",
+      "access": "Indexed primary SKILL.md excerpt only; full-page fetch failed.",
+      "url": "https://github.com/ch040602/anti-ai-slop/blob/main/SKILL.md",
+      "take": "Evaluate fit to purpose without attributing authorship; separate text review from artifact-specific QA.",
+      "reject": "Do not expand this writing skill into an untested universal UI/code/design replacement.",
+      "license": "Not independently verified."
+    },
+    {
+      "id": "S16",
+      "project": "fayerman-source/deslop",
+      "kind": "Plain legal/professional writing",
+      "access": "Primary repository README inspected; complete skill implementation not audited.",
+      "url": "https://github.com/fayerman-source/deslop",
+      "take": "Consider plain wording while protecting terms of art.",
+      "reject": "No legal advice, legal certification, or blanket removal of contract language.",
+      "license": "Not independently verified."
+    }
+  ]
+}
